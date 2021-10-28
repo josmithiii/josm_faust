@@ -1,7 +1,8 @@
 /**
- * \file Freeverb.cpp
- * \author Julius Smith
- * \date October 2021
+ * Freeverb.cpp
+ * Julius Smith
+ * October 2021
+ * MIT License
  */
 
 #include "Freeverb.h"
@@ -12,6 +13,7 @@ namespace jos {
 
   void Freeverb::processBlock (juce::AudioBuffer<float>& audioBuffer, juce::MidiBuffer& midi)
   {
+    if (not inited) { return; }
     int numSamples = audioBuffer.getNumSamples();
     jassert(getNumInputs() <= audioBuffer.getNumChannels());
     jassert(getNumOutputs() <= audioBuffer.getNumChannels());
