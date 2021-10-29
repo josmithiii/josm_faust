@@ -1,5 +1,5 @@
 /**
- * Freeverb.h
+ * jos_freeverb.h
  * Julius Smith
  * October 2021
  * MIT License

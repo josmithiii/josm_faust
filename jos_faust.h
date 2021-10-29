@@ -68,6 +68,6 @@ namespace jos
 };
 
 //==============================================================================
-#include "oscillators/oscillators.h"
-#include "filters/filters.h"
-#include "effects/effects.h"
+#include "oscillators/jos_oscillators.h"
+#include "filters/jos_filters.h"
+#include "effects/jos_effects.h"

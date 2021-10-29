@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "Freeverb.h"
+#include "jos_freeverb.h"
 
 namespace jos {
 

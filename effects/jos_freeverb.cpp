@@ -1,11 +1,11 @@
 /**
- * Freeverb.cpp
+ * jos_freeverb.cpp
  * Julius Smith
  * October 2021
  * MIT License
  */
 
-#include "Freeverb.h"
+#include "jos_freeverb.h"
 
 #include <iostream>
 
