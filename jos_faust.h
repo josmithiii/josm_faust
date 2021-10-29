@@ -7,22 +7,6 @@
  JUCE Module Format.md file.
 *******************************************************************************/
 
-/*! \mainpage jos_faust Index Page
- *
- * \section intro_sec Introduction
- *
- * This is the introduction.
- *
- * \section install_sec Installation
- *
- * \subsection step1 Step 1: Opening the box
- *
- * etc...
- * For more, see https://www.doxygen.nl/manual/commands.html#cmdmainpage
- *
- * How to open? file:///Users/jos/w/320C-2021/docs/doxygen/doc/group__jos__faust.html
- */
-
 #pragma once
 
 #if 0
