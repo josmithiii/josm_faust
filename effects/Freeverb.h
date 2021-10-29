@@ -1,10 +1,11 @@
 /**
- * \file Freeverb.h
- * \author Julius Smith
- * \date October 2021
+ * Freeverb.h
+ * Julius Smith
+ * October 2021
+ * MIT License
  */
 
-/** \brief Freeverb from the faustlibraries distribution (in reverbs.lib)
+/** Freeverb from the faustlibraries distribution (in reverbs.lib)
  *
  */
 #ifndef __FREEVERB_H__
@@ -20,9 +21,13 @@ namespace jos {
 #include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 #endif
 
-  /** \brief Freeverb is an echo-based delay effect ("artificial reverberation"),
-   *  providing a virtual acoustic listening space.
-   */
+//==============================================================================
+/**
+    An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
+
+    @tags{Effects}
+*/
+
   class Freeverb : public jos::FaustModule
   {
     int mNumInputs;
@@ -41,7 +46,8 @@ namespace jos {
     void compute(int nframes, float** inputs, float** outputs);
 
   public:
-    /// \brief The class constructor sets the number of channels to limit
+    //==============================================================================
+    /** Creates an instance of Freeverb with the specified number of input and output channels. */
     Freeverb(int numInChans, int numOutChans) // xtor
       : mNumInputs(numInChans), mNumOutputs(numOutChans)
     {
@@ -74,7 +80,10 @@ namespace jos {
 
     }
 
-    /// \brief The class destructor
+    /** Destructor.
+
+        This will free any memory allocated by Freeverb.
+    */
     virtual ~Freeverb() {
       delete freeverbP;
       delete freeverbUIP;
@@ -106,6 +115,8 @@ namespace jos {
 #endif
     }
 
+    //==============================================================================
+    /** Set the reverberation level between 0 (no reverb) to 1 (maximally "wet" reverb) */
     void setReverbLevel(float level) {
       mReverbLevel = level;
     }

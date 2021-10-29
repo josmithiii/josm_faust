@@ -17,7 +17,7 @@
   vendor:             jos
   version:            0.0.1
   name:               JOS Faust Modules for JUCE
-  description:        C++ Modules used with the JUCE Framework, based on jos functions from the Faust Libraries
+  description:        C++ Modules for use with the JUCE Framework, based on jos functions from the Faust Libraries
   website:            https://ccrma.stanford.edu/~jos/jos_faust
   license:            MIT
   minimumCppStandard: 14
