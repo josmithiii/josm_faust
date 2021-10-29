@@ -29,10 +29,5 @@ namespace jos {
     if (mReverbLevel > 0.0f) {
       freeverbP->compute(nframes, inputs, outputs);
     } // else in-place processing means we're done
-#if 0
-    if (mReverbLevel > 0.0f) {
-      zitarevP->compute(nframes, inputs, outputs);
-    } // else in-place processing means we're done
-#endif
   }
 };

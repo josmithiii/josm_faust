@@ -17,9 +17,6 @@ namespace jos {
 
 #include "../FaustModule.h"
 #include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
-#if 0
-#include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
-#endif
 
 //==============================================================================
 /**
@@ -37,11 +34,6 @@ namespace jos {
 
     freeverb* freeverbP;
     APIUI* freeverbUIP;
-
-#if 0
-    zitarev* zitarevP;
-    APIUI* zitarevUIP;
-#endif
 
     void compute(int nframes, float** inputs, float** outputs);
 
@@ -69,15 +61,6 @@ namespace jos {
       freeverbP = new freeverb; // stereo input and output
       freeverbUIP = new APIUI; // #included in *dsp.h
       freeverbP->buildUserInterface(freeverbUIP);
-      // std::cout << "Using freeverb\n";
-
-#if 0
-      zitarevP = new zitarev; // stereo input and output
-      zitarevUIP = new APIUI;
-      zitarevP->buildUserInterface(zitarevUIP);
-      // std::cout << "Using zitarev\n";
-#endif
-
     }
 
     /** Destructor.
@@ -87,10 +70,6 @@ namespace jos {
     virtual ~Freeverb() {
       delete freeverbP;
       delete freeverbUIP;
-#if 0
-      delete zitarevP;
-      delete zitarevUIP;
-#endif
     }
 
     int getNumInputs() override { return(mNumInputs); }
@@ -106,13 +85,6 @@ namespace jos {
       jassert(freeverbP->getNumOutputs() == mNumOutputs);
       int ndx = freeverbUIP->getParamIndex("Wet");
       freeverbUIP->setParamValue(ndx, mReverbLevel);
-#if 0
-      zitarevP->init(fs); // compression filter parameters depend on sampling rate
-      jassert(zitarevP->getNumOutputs() == mNumOutputs);
-      int ndx = zitarevUIP->getParamIndex("Wet");
-      float zitaLevel = mReverbLevel-1.0f; // range within zitarev is 0 to 1 (our version only)
-      zitarevUIP->setParamValue(ndx, zitaLevel);
-#endif
     }
 
     //==============================================================================
