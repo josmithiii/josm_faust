@@ -56,7 +56,7 @@ namespace jos {
     */
     virtual void processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) = 0;
 
-    /** Release anything allocated by prepareToPlay() after done with processBlock() 
+    /** Release anything allocated by prepareToPlay() after all calls to processBlock() are complete.
         @see prepareToPlay
      */
     virtual void releaseResources() { inited = false; }
