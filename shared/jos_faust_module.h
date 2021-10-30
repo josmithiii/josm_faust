@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-//namespace jos {
+namespace jos {
 
   class FaustModule {
     // Contains any common code shared by all Faust modules.
@@ -63,4 +63,4 @@
 
   };
 
-//};
+};

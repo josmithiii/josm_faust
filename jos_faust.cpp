@@ -1,4 +1,5 @@
 #include "jos_faust.h"
-#include "jos_faust/oscillators/oscillators.cpp"
-#include "jos_faust/filters/filters.cpp"
-#include "jos_faust/effects/effects.cpp"
+#include "jos_faust/shared/jos_shared.cpp"
+#include "jos_faust/oscillators/jos_oscillators.cpp"
+#include "jos_faust/filters/jos_filters.cpp"
+#include "jos_faust/effects/jos_effects.cpp"

@@ -3,13 +3,14 @@
 
 #pragma once
 
-/** @addtogroup Oscillators */
-/*@{*/
+/** \ingroup Oscillators
+ *  @{
+ */
 
 //#include "jos_sine.h"
 //#include "jos_triplesaw.h"
 
-/*@}*/
+/** @} */
 
 namespace jos {
   

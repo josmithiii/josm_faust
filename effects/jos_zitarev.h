@@ -15,7 +15,7 @@ namespace jos {
 
   //#define SINE_TEST
 
-#include "../FaustModule.h"
+#include "../shared/jos_faust_module.h"
 #include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 
 //==============================================================================

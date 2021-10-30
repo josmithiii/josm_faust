@@ -4,13 +4,14 @@
 #pragma once
 
 
-/** @addtogroup Effects */
-/*@{*/
+/** \ingroup Effects
+ *  @{
+ */
 
 #include "jos_freeverb.h"
 #include "jos_zitarev.h"
 
-/*@}*/
+/** @} */
 
 namespace jos {
 
