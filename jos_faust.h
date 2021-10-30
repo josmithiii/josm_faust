@@ -18,7 +18,7 @@
   version:            0.0.1
   name:               JOS Faust Modules for JUCE
   description:        C++ Modules for use with the JUCE Framework, based on jos functions from the Faust Libraries
-  website:            https://ccrma.stanford.edu/~jos/jos_faust
+  website:            https://ccrma.stanford.edu/~jos/jos_faust/
   license:            MIT unless otherwise specified (also have LGPL and BSD modules)
   minimumCppStandard: 14
   dependencies:       juce_core, juce_audio_basics, juce_audio_utils, juce_audio_processors, juce_gui_basics
