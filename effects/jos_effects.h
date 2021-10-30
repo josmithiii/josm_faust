@@ -4,15 +4,20 @@
 #pragma once
 
 
-/** \ingroup Effects
- *  @{
+/** \name Effects
+ * Effects are essentially well known Filters.
  */
+///@{
 
 #include "jos_freeverb.h"
 #include "jos_zitarev.h"
 
-/** @} */
+///@}
+
+/*! \file
+ * docs for this file
+ */
 
 namespace jos {
-
+  // any header stuff global to all effects can go here
 } // namespace jos
