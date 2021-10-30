@@ -3,6 +3,14 @@
 
 #pragma once
 
+/** @addtogroup Filters */
+/*@{*/
+
+//#include "jos_biquad.h"
+//#include "jos_filterbank.h"
+
+/*@}*/
+
 namespace jos {
   
 } // namespace jos

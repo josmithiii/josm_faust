@@ -2,7 +2,7 @@
  * jos_freeverb.cpp
  * Julius Smith
  * October 2021
- * MIT License
+ * MIT License with LGPL component
  */
 
 #include "jos_freeverb.h"

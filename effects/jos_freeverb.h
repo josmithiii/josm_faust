@@ -2,12 +2,15 @@
  * jos_freeverb.h
  * Julius Smith
  * October 2021
- * MIT License
+ * MIT License with LGPL component
  */
 
 /** Freeverb from the faustlibraries distribution (in reverbs.lib)
  *
+ * @param name The name of the goat;
+ * @return The summoned goat;
  */
+
 #ifndef __FREEVERB_H__
 #define __FREEVERB_H__
 
@@ -39,7 +42,10 @@ namespace jos {
 
   public:
     //==============================================================================
-    /** Creates an instance of Freeverb with the specified number of input and output channels. */
+    /** Creates an instance of Freeverb with the specified number of input and output channels. 
+     * @param numInChans number of input channels
+     * @param numOutChans number of output channels
+     */
     Freeverb(int numInChans, int numOutChans) // xtor
       : mNumInputs(numInChans), mNumOutputs(numOutChans)
     {
