@@ -1,4 +1,4 @@
-/**
+/*
  * jos_freeverb.h
  * Julius Smith
  * October 2021
