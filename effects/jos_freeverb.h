@@ -17,9 +17,11 @@ namespace jos {
 /**
     An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
 
+    \ingroup effects
+
     @see Zitarev
 
-    @tags{Effects}
+    @tags{effects}
 */
 
   class Freeverb : public jos::FaustModule
@@ -44,7 +46,9 @@ namespace jos {
         @param numInChans number of input channels
         @param numOutChans number of output channels
 
-        @see Effects
+        @see Zitarev
+
+        @tags{effects}
      */
     Freeverb(int numInChans, int numOutChans) // xtor
       : mNumInputs(numInChans), mNumOutputs(numOutChans)

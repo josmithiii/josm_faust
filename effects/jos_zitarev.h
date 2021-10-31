@@ -19,9 +19,11 @@ namespace jos {
 /**
     An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
 
+    \ingroup effects
+
     @see Freeverb
 
-    @tags{Effects}
+    @tags{effects}
  */
 
 /**

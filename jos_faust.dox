@@ -17,7 +17,7 @@
     Select "Add a module from a specified folder", and navigate to wherever you have these modules
     on your computer, usually in a directory named modules.
 
-    @tags{Oscillators, Filters, Effects}
+    @tags{oscillators, filters, effects}
 */
 
  // For more info on \mainpage, see https://www.doxygen.nl/manual/commands.html#cmdmainpage
