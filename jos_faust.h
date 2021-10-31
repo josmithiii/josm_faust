@@ -69,10 +69,9 @@ namespace jos
   /**
      \file jos_faust.h
      This is the jos_faust module.
-     I am finding doxygen to be extremely frustrating.
 
     \defgroup jos_faust jos_faust
-     This is the jos_faust group - is this needed?
+     This is the jos_faust group - is this needed or useful?
   */
 
 
