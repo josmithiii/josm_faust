@@ -5,10 +5,8 @@
  * MIT License with LGPL component
  */
 
-#include "jos_freeverb.h"
-
-#include <iostream>
-
+// #include "jos_freeverb.h"
+// #include <iostream>
 namespace jos {
 
   void Freeverb::processBlock (juce::AudioBuffer<float>& audioBuffer, juce::MidiBuffer& midi)
@@ -21,7 +19,7 @@ namespace jos {
     float** readPointers { writePointers }; // we process in place - COMPILE FAUST WITH -inpl OPTION!
     compute(numSamples, readPointers, writePointers);
   }
-  
+
   //*******************************************************************************
   void Freeverb::compute(int nframes, float** inputs, float** outputs)
   {
@@ -30,4 +28,4 @@ namespace jos {
       freeverbP->compute(nframes, inputs, outputs);
     } // else in-place processing means we're done
   }
-};
+} // namespace jos

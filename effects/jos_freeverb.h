@@ -1,35 +1,31 @@
 /*
- * jos_freeverb.h
+ * jos_freeverb.h - freeverb from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
  * MIT License with LGPL component
  */
 
-/** Freeverb from the faustlibraries distribution (in reverbs.lib)
- *
- * @param name The name of the goat;
- * @return The summoned goat;
- */
+//#ifndef __FREEVERB_H__
+//#define __FREEVERB_H__
 
-#ifndef __FREEVERB_H__
-#define __FREEVERB_H__
+//#include "../shared/jos_faust_module.h"
+//#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
 namespace jos {
-
-  //#define SINE_TEST
-
-#include "../shared/jos_faust_module.h"
-#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
 //==============================================================================
 /**
     An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
+
+    @see Zitarev
 
     @tags{Effects}
 */
 
   class Freeverb : public jos::FaustModule
   {
+    /** @internal */
+
     int mNumInputs;
     int mNumOutputs;
 
@@ -42,9 +38,13 @@ namespace jos {
 
   public:
     //==============================================================================
-    /** Creates an instance of Freeverb with the specified number of input and output channels. 
-     * @param numInChans number of input channels
-     * @param numOutChans number of output channels
+    /** 
+        Creates an instance of Freeverb with the specified number of input and output channels. 
+
+        @param numInChans number of input channels
+        @param numOutChans number of output channels
+
+        @see Effects
      */
     Freeverb(int numInChans, int numOutChans) // xtor
       : mNumInputs(numInChans), mNumOutputs(numOutChans)
@@ -69,14 +69,14 @@ namespace jos {
       freeverbP->buildUserInterface(freeverbUIP);
     }
 
-    /** Destructor.
-
-        This will free any memory allocated by Freeverb.
-    */
+    /** Destructor. */
     virtual ~Freeverb() {
       delete freeverbP;
       delete freeverbUIP;
     }
+
+// @param name The name of the goat;
+// @return The summoned goat;
 
     int getNumInputs() override { return(mNumInputs); }
     int getNumOutputs() override { return(mNumOutputs); }
@@ -103,6 +103,6 @@ namespace jos {
 
   }; // Class Freeverb
 
-}; // namespace jos
+} // namespace jos
 
-#endif // __FREEVERB_H__
+//#endif // __FREEVERB_H__

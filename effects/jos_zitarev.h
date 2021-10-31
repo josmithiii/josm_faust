@@ -1,13 +1,10 @@
 /**
- * jos_zitarev.h
+ * jos_zitarev.h - zitarev from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
  * MIT License with LGPL component
  */
 
-/** Zitarev from the faustlibraries distribution (in reverbs.lib)
- *
- */
 #ifndef __ZITAREV_H__
 #define __ZITAREV_H__
 
@@ -22,7 +19,12 @@ namespace jos {
 /**
     An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
 
+    @see Freeverb
+
     @tags{Effects}
+ */
+
+/**
 */
 
   class Zitarev : public jos::FaustModule
