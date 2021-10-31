@@ -3,7 +3,7 @@
 
 #pragma once
 
-/** \ingroup Filters
+/** \ingroup filters
  *  @{
  */
 
@@ -11,7 +11,3 @@
 //#include "jos_filterbank.h"
 
 /** @} */
-
-namespace jos {
-  
-} // namespace jos

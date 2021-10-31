@@ -3,7 +3,7 @@
 
 #pragma once
 
-/** \ingroup Oscillators
+/** \ingroup oscillators
  *  @{
  */
 
@@ -11,7 +11,3 @@
 //#include "jos_triplesaw.h"
 
 /** @} */
-
-namespace jos {
-  
-} // namespace jos

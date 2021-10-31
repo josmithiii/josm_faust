@@ -3,14 +3,10 @@
 
 #pragma once
 
-/** \ingroup Shared
+/** \ingroup shared
  *  @{
  */
 
 #include "jos_faust_module.h"
 
 /** @} */
-
-namespace jos {
-
-} // namespace jos

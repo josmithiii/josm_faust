@@ -58,8 +58,18 @@ namespace jos
      \file jos_faust.h
      This is the jos_faust module.
 
-    \defgroup jos_faust jos_faust
-     This is the jos_faust group - is this needed or useful?
+    \defgroup shared Shared
+     Does this Shared group work?
+
+    \defgroup oscillators Oscillators
+     Does this Oscillators group work?
+
+    \defgroup filters Filters
+     Does this Filters group work?
+
+    \defgroup effects Effects
+     Does this Effects group work?
+
   */
 
 

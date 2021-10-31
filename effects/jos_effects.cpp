@@ -11,5 +11,9 @@
 
 #include "jos_effects.h"
 
+/** \ingroup effects
+ *  @{
+ */
 #include "jos_freeverb.cpp"
 #include "jos_zitarev.cpp"
+/** @} */
