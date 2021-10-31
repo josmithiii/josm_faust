@@ -1,15 +1,17 @@
 //#define jos_faust_url <a href="file:./group__jos__faust.html">jos_faust</a>
+//n:    href="file:md__Users_jos_w_320C_2021_modules_JuceModuleFormat.html">JUCE
+//n: <a href="file:group__jos__faust.html">jos_faust</a>
 
 /** \mainpage JOS Modules Main Page
 
     These C++ modules are written in the <a
-    href="file:./md__Users_jos_w_320C_2021_modules_JuceModuleFormat.html">JUCE
+    href="./md__Users_jos_w_320C_2021_modules_JuceModuleFormat.html">JUCE
     Module Format</a> and are intended to supplement the usual JUCE
     modules.
 
     \section intro_sec Available Modules 
 
-    <a href="file:./group__jos__faust.html">jos_faust</a>
+    <a href="./group__jos__faust.html">jos_faust</a>
 
     \subsection projucer Adding modules in Projucer:
 
