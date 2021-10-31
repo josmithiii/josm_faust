@@ -21,7 +21,7 @@
   website:            https://ccrma.stanford.edu/~jos/jos_faust/
   license:            MIT unless otherwise specified (also have LGPL and BSD modules)
   minimumCppStandard: 14
-  dependencies:       juce_core, juce_audio_basics, juce_audio_utils, juce_audio_processors, juce_gui_basics
+  dependencies:       juce_audio_utils
   OSXFrameworks:      Accelerate
   iOSFrameworks:      Accelerate
 
@@ -31,19 +31,7 @@
 
 /*******************************************************************************/
 
-#include <juce_core/juce_core.h>
-#include <juce_audio_basics/juce_audio_basics.h>
-#include <juce_audio_devices/juce_audio_devices.h>
-#include <juce_audio_formats/juce_audio_formats.h>
-#include <juce_audio_processors/juce_audio_processors.h>
-#include <juce_audio_plugin_client/juce_audio_plugin_client.h>
 #include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_gui_extra/juce_gui_extra.h>
-   //#include <juce_data_structures/juce_data_structures.h>
-   //#include <juce_gui_basics/juce_gui_basics.h>
-   //#include <juce_events/juce_events.h>
-   //#include <juce_graphics/juce_graphics.h>
-// FIXME: Find dependencies and make a tight list here (maybe easier in CMake)
 
 //==============================================================================
 
