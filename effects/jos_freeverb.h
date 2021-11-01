@@ -15,11 +15,12 @@ namespace jos {
 
 //==============================================================================
 /**
-    An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
+    Freeverb is a well known free open-source reverb.
+    Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
 
     \ingroup effects
 
-    @see Zitarev
+    @see jos::Zitarev
 
     @tags{effects}
 */

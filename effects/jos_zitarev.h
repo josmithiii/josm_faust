@@ -1,4 +1,4 @@
-/**
+/*
  * jos_zitarev.h - zitarev from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
@@ -19,9 +19,11 @@ namespace jos {
 /**
     An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
 
+    Reference: https://ccrma.stanford.edu/~jos/pasp/Zita_Rev1.html
+
     \ingroup effects
 
-    @see Freeverb
+    @see jos::Freeverb
 
     @tags{effects}
  */
