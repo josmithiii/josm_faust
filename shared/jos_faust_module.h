@@ -4,8 +4,9 @@
 
 namespace jos {
 
+  /** Contains any common code shared by all Faust modules. */
+
   class FaustModule {
-    // Contains any common code shared by all Faust modules.
 
     double sampleRate = 0;
     int blockSize = 0;

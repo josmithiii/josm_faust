@@ -53,26 +53,6 @@ namespace jos
 #undef Complex
   template <typename Type>
     using Complex = std::complex<Type>;
-
-  /**
-     \file jos_faust.h
-     This is the jos_faust module.
-
-    \defgroup shared Shared
-     Does this Shared group work?
-
-    \defgroup oscillators Oscillators
-     Does this Oscillators group work?
-
-    \defgroup filters Filters
-     Does this Filters group work?
-
-    \defgroup effects Effects
-     Does this Effects group work?
-
-  */
-
-
 };
 
 //==============================================================================

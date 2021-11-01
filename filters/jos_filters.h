@@ -3,11 +3,5 @@
 
 #pragma once
 
-/** \ingroup filters
- *  @{
- */
-
 //#include "jos_biquad.h"
 //#include "jos_filterbank.h"
-
-/** @} */

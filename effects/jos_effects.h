@@ -12,11 +12,5 @@
     @tags{effects}
 */
 
-/** \ingroup effects
- *  @{
- */
-
 #include "jos_freeverb.h"
 #include "jos_zitarev.h"
-
-/** @} */

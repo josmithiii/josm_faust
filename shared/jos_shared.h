@@ -3,10 +3,4 @@
 
 #pragma once
 
-/** \ingroup shared
- *  @{
- */
-
 #include "jos_faust_module.h"
-
-/** @} */

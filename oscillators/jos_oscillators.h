@@ -3,11 +3,5 @@
 
 #pragma once
 
-/** \ingroup oscillators
- *  @{
- */
-
 //#include "jos_sine.h"
 //#include "jos_triplesaw.h"
-
-/** @} */
