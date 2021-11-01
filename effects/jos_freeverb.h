@@ -8,8 +8,8 @@
 //#ifndef __FREEVERB_H__
 //#define __FREEVERB_H__
 
-//#include "../shared/jos_faust_module.h"
-//#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
+#include "../shared/jos_faust_module.h"
+#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
 namespace jos
 {

@@ -10,8 +10,8 @@
 
 namespace jos {
 
-  //#include "../shared/jos_faust_module.h"
-  //#include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
+#include "../shared/jos_faust_module.h"
+#include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 
 //==============================================================================
 /**
