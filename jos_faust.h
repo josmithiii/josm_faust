@@ -40,6 +40,15 @@
 #define JOS_FAUST_PARAM_LOG 1
 #endif
 
+//==============================================================================
+//#include "effects/jos_effects.h"
+#include "effects/jos_freeverb.h"
+#include "effects/jos_zitarev.h"
+
+#include "shared/jos_shared.h"
+#include "oscillators/jos_oscillators.h"
+#include "filters/jos_filters.h"
+
 #include <complex>
 
 namespace jos
@@ -49,10 +58,5 @@ namespace jos
   //#undef Complex // done by juce_audio_basics.h
   template <typename Type>
   using Complex = std::complex<Type>;
-};
+}
 
-//==============================================================================
-#include "shared/jos_shared.h"
-#include "oscillators/jos_oscillators.h"
-#include "filters/jos_filters.h"
-#include "effects/jos_effects.h"

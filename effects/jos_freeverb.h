@@ -8,10 +8,11 @@
 //#ifndef __FREEVERB_H__
 //#define __FREEVERB_H__
 
-#include "../shared/jos_faust_module.h"
-#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
+//#include "../shared/jos_faust_module.h"
+//#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
-namespace jos {
+namespace jos
+{
 
 //==============================================================================
 /**
@@ -22,13 +23,11 @@ namespace jos {
 
     @see jos::Zitarev
 
-    @tags{effects}
+    @tags{Effects}
+
 */
-
-  class Freeverb : public jos::FaustModule
+  class JUCE_API Freeverb : public jos::FaustModule
   {
-    /** @internal */
-
     int mNumInputs;
     int mNumOutputs;
 
@@ -109,5 +108,15 @@ namespace jos {
   }; // Class Freeverb
 
 } // namespace jos
+
+/**
+   \file jos_freeverb.h
+
+   C++ wrapper for re.freeverb in the faustlibraries distribution (reverbs.lib).
+
+   \ingroup effects
+*/
+
+//==============================================================================
 
 //#endif // __FREEVERB_H__

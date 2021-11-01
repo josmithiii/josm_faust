@@ -30,4 +30,5 @@ namespace jos {
       zitarevP->compute(nframes, inputs, outputs);
     } // else in-place processing means we're done
   }
-};
+
+}

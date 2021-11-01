@@ -4,7 +4,7 @@
 
 namespace jos {
 
-  /** Contains any common code shared by all Faust modules. */
+  /** Abstract class for Faust modules, taking care of common functions */
 
   class FaustModule {
 
