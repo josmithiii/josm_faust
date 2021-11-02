@@ -1,4 +1,4 @@
-/**
+/*
  * jos_zitarev.h - zitarev from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
@@ -10,26 +10,23 @@
 
 namespace jos {
 
-  //#define SINE_TEST
-
 #include "../shared/jos_faust_module.h"
 #include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 
 //==============================================================================
 /**
-    An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
+    Zitarev is a rich artificial reverberator developed by Fons Adriaensen for pipe organ
+
+    Reference: https://ccrma.stanford.edu/~jos/pasp/Zita_Rev1.html
 
     \ingroup effects
 
-    @see Freeverb
+    @see jos::Freeverb
 
-    @tags{effects}
+    @tags{Effects}
  */
 
-/**
-*/
-
-  class Zitarev : public jos::FaustModule
+  class JUCE_API Zitarev : public jos::FaustModule
   {
     int mNumInputs;
     int mNumOutputs;
@@ -43,7 +40,7 @@ namespace jos {
 
   public:
     //==============================================================================
-    /** Creates an instance of Zitarev with the specified number of input and output channels. */
+    /** Constructor: Creates an instance of Zitarev with the specified number of input and output channels. */
     Zitarev(int numInChans, int numOutChans) // xtor
       : mNumInputs(numInChans), mNumOutputs(numOutChans)
     {
@@ -67,10 +64,7 @@ namespace jos {
       zitarevP->buildUserInterface(zitarevUIP);
     }
 
-    /** Destructor.
-
-        This will free any memory allocated by Zitarev.
-    */
+    /** Destructor. */
     virtual ~Zitarev() {
       delete zitarevP;
       delete zitarevUIP;
@@ -99,8 +93,10 @@ namespace jos {
 
     virtual void processBlock (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) override;
 
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Zitarev)
+
   }; // Class Zitarev
 
-}; // namespace jos
+} // namespace jos
 
 #endif // __ZITAREV_H__

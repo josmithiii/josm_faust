@@ -5,11 +5,6 @@
  the Projucer to automatically generate project code that uses it.
  For details about the syntax and how to create or use a module, see the
  JUCE Module Format.md file.
-*******************************************************************************/
-
-#pragma once
-
-#if 0
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -27,11 +22,12 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+*******************************************************************************/
 
-/*******************************************************************************/
+#pragma once
+#define JOS_FAUST_H_INCLUDED
 
-#include <juce_audio_utils/juce_audio_utils.h>
+#include <juce_audio_utils/juce_audio_utils.h> // dependencies
 
 //==============================================================================
 
@@ -44,19 +40,23 @@
 #define JOS_FAUST_PARAM_LOG 1
 #endif
 
+//==============================================================================
+//#include "effects/jos_effects.h"
+#include "effects/jos_freeverb.h"
+#include "effects/jos_zitarev.h"
+
+#include "shared/jos_shared.h"
+#include "oscillators/jos_oscillators.h"
+#include "filters/jos_filters.h"
+
 #include <complex>
 
 namespace jos
 {
   static const float PI = atanf(1.0f) * 4.0f;
   static const float PI2 = atanf(1.0f) * 8.0f;
-#undef Complex
+  //#undef Complex // done by juce_audio_basics.h
   template <typename Type>
-    using Complex = std::complex<Type>;
-};
+  using Complex = std::complex<Type>;
+}
 
-//==============================================================================
-#include "shared/jos_shared.h"
-#include "oscillators/jos_oscillators.h"
-#include "filters/jos_filters.h"
-#include "effects/jos_effects.h"

@@ -11,23 +11,23 @@
 #include "../shared/jos_faust_module.h"
 #include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
-namespace jos {
+namespace jos
+{
 
 //==============================================================================
 /**
-    An echo-based delay effect ("artificial reverberation"), providing a virtual acoustic listening space.
+    Freeverb is a well known free open-source reverb.
+    Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
 
     \ingroup effects
 
-    @see Zitarev
+    @see jos::Zitarev
 
-    @tags{effects}
+    @tags{Effects}
+
 */
-
-  class Freeverb : public jos::FaustModule
+  class JUCE_API Freeverb : public jos::FaustModule
   {
-    /** @internal */
-
     int mNumInputs;
     int mNumOutputs;
 
@@ -108,5 +108,15 @@ namespace jos {
   }; // Class Freeverb
 
 } // namespace jos
+
+/**
+   \file jos_freeverb.h
+
+   C++ wrapper for re.freeverb in the faustlibraries distribution (reverbs.lib).
+
+   \ingroup effects
+*/
+
+//==============================================================================
 
 //#endif // __FREEVERB_H__

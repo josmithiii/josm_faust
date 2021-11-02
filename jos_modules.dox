@@ -1,0 +1,37 @@
+/** \mainpage JOS Modules Main Page
+
+    These C++ modules are written in the <a
+    href="./md__Users_jos_w_320C_2021_modules_JuceModuleFormat.html">JUCE
+    Module Format</a> and are intended to supplement the usual JUCE
+    modules.
+
+    \section intro_sec Available JUCE-Format Modules 
+
+    <a href="./group__jos__faust.html">jos_faust</a>
+
+    \subsection BUG
+
+    The Modules tab in the navigation bar above, and the "Modules"
+    list inside the jos_faust module are EMPTY when you click on them.
+    This is not understood.  Incredible time was wasted carefully
+    replicating a working example (from the JUCE distribution), but it
+    never worked here.  Click on Classes or Files in the navigation
+    bar instead.  Bugfix welcome!
+
+    \subsection Examples
+
+    In the examples directory you will find JUCE apps which use one or
+    more of these modules.  Create the project using Projucer from the
+    JUCE distribution in the usual way.
+
+    \subsection projucer Adding Modules in Projucer:
+
+    In Projucer, click on Modules in the left navigation bar, and then
+    on + at the lower right of that.  Select "Add a module from a
+    specified folder", and navigate to wherever you have these modules
+    on your computer, usually in a directory named modules.
+
+    @tags{oscillators, filters, effects, shared}
+*/
+
+ // For more info on \mainpage, see https://www.doxygen.nl/manual/commands.html#cmdmainpage
