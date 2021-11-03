@@ -3,8 +3,6 @@
 
    Abstract superclass shared by all Faust modules
 
-   \ingroup shared
-
    @tags{Shared}
 */
 

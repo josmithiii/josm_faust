@@ -19,8 +19,6 @@ namespace jos {
 
     Reference: https://ccrma.stanford.edu/~jos/pasp/Zita_Rev1.html
 
-    \ingroup effects
-
     @see jos::Freeverb
 
     @tags{Effects}
@@ -104,7 +102,6 @@ namespace jos {
 
    C++ wrapper for re.zita_rev1 in the faustlibraries distribution (reverbs.lib).
 
-   \ingroup effects
 */
 
 #endif // __ZITAREV_H__

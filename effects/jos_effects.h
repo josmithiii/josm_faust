@@ -13,9 +13,9 @@
    @tags{Effects}
 */
 
-#pragma once
+//#pragma once
 
-/** \addtogroup jos_faust
+/* [NOTE DISABLED DOXYGEN COMMENT] \defgroup effects Effects
  *  @{
  */
 #include "jos_freeverb.h"

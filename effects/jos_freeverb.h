@@ -8,7 +8,7 @@
 //#ifndef __FREEVERB_H__
 //#define __FREEVERB_H__
 
-#include "../shared/jos_faust_module.h"
+//#include "../shared/jos_faust_module.h"
 
 namespace jos
 {
@@ -17,8 +17,6 @@ namespace jos
 /**
     Freeverb is a well known free open-source reverb.
     Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
-
-    \ingroup effects
 
     @see jos::Zitarev
 
@@ -112,7 +110,6 @@ namespace jos
 
    C++ wrapper for re.freeverb in the faustlibraries distribution (reverbs.lib).
 
-   \ingroup effects
 */
 
 //==============================================================================

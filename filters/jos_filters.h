@@ -3,7 +3,7 @@
 
 #pragma once
 
-/** \defgroup filters Filters
+/* \defgroup filters Filters
  *  @{
  */
 #include "jos_biquad.h"

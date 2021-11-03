@@ -13,7 +13,7 @@
 
 #pragma once
 
-/** \defgroup shared Shared
+/* \defgroup shared Shared
  *  @{
  */
 

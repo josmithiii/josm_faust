@@ -3,7 +3,7 @@
 
 #pragma once
 
-/** \defgroup oscillators Oscillators
+/* \defgroup oscillators Oscillators
  *  @{
  */
 #include "jos_sine.h"

@@ -47,7 +47,7 @@
 
 //==============================================================================
 
-/** \defgroup jos_faust jos_faust
+/** \defgroup jos_faust JOS Faust Modules
  *  @{
  */
 #include "shared/jos_shared.h"
