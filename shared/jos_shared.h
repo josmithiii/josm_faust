@@ -1,14 +1,14 @@
 // Classes shared by multiple module categories
 // Started 2021-10-30
 
-/*! \file
-    jos_shared.h
+/** \file
+  jos_shared.h
 
-    Includes classes shared among multiple modules.
+  Includes classes shared among multiple modules.
 
-    @see jos::FaustModule
+  @see jos::FaustModule
 
-    @tags{Shared}
+  @tags{Shared}
 */
 
 #pragma once
@@ -17,6 +17,22 @@
  *  @{
  */
 
+namespace jos {
+
+  class TestClassShared {
+
+    /** integer */
+    int i;
+
+    /** Constructor */
+    TestClassShared() {}
+
+    /** Destructor */
+    ~TestClassShared() = default;
+  };
+
+}
+  
 #include "jos_faust_module.h"
 
-/** @}*/
+/* @}*/

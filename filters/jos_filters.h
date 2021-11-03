@@ -8,4 +8,4 @@
  */
 //#include "jos_biquad.h"
 //#include "jos_filterbank.h"
-/** @}*/
+/* @}*/

@@ -8,4 +8,4 @@
  */
 //#include "jos_sine.h"
 //#include "jos_triplesaw.h"
-/** @}*/
+/* @}*/
