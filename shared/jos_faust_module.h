@@ -1,10 +1,20 @@
+/**
+   \file jos_faust_module.h
+
+   Abstract superclass shared by all Faust modules
+
+   \ingroup shared
+
+   @tags{Shared}
+*/
+
 #pragma once
 
 #include <JuceHeader.h>
 
 namespace jos {
 
-  /** Abstract class for Faust modules, taking care of common functions */
+  /** Abstract class for Faust modules, taking care of common functions such as standard Faust API */
 
   class FaustModule {
 

@@ -1,6 +1,6 @@
 // JOS Faust modules - started 2021-10-28
 
-/*******************************************************************************
+/* ******************************************************************************
  The block below describes the properties of this module, and is read by
  the Projucer to automatically generate project code that uses it.
  For details about the syntax and how to create or use a module, see the
@@ -24,6 +24,11 @@
 
 *******************************************************************************/
 
+/*! \file jos_faust.h
+    Includes everything in the jos_faust module
+    @tags{jos_faust}
+*/
+
 #pragma once
 #define JOS_FAUST_H_INCLUDED
 
@@ -42,10 +47,14 @@
 
 //==============================================================================
 
+/** \defgroup jos_faust jos_faust
+ *  @{
+ */
 #include "shared/jos_shared.h"
 #include "oscillators/jos_oscillators.h"
 #include "filters/jos_filters.h"
 #include "effects/jos_effects.h"
+/** @} */
 
 #include <complex>
 

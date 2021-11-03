@@ -99,4 +99,12 @@ namespace jos {
 
 } // namespace jos
 
+/**
+   \file jos_zitarev.h
+
+   C++ wrapper for re.zita_rev1 in the faustlibraries distribution (reverbs.lib).
+
+   \ingroup effects
+*/
+
 #endif // __ZITAREV_H__
