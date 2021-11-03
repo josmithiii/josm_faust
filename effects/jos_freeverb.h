@@ -22,7 +22,9 @@ namespace jos
 
     @tags{Effects}
 
-*/class freeverb;
+*/
+
+  class freeverb;
   class APIUI;
 
   class JUCE_API Freeverb : public jos::FaustModule

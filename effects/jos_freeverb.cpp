@@ -5,6 +5,8 @@
  * MIT License with LGPL component that is easily rewritten if need be
  */
 
+#include "jos_freeverb.h"
+
 namespace jos {
 
 #include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
