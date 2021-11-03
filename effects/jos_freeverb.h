@@ -79,11 +79,10 @@ namespace jos
       delete freeverbUIP;
     }
 
-// @param name The name of the goat;
-// @return The summoned goat;
-
+    ///@{
     int getNumInputs() override { return(mNumInputs); }
     int getNumOutputs() override { return(mNumOutputs); }
+    ///@}
 
     void prepareToPlay(double samplingRateHz, int maxSamplesPerBlock) override {
       DBG("Freeverb: prepareToPlay(" << samplingRateHz << ")");
