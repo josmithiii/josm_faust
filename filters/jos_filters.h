@@ -6,6 +6,6 @@
 /* \defgroup filters Filters
  *  @{
  */
-#include "jos_biquad.h"
-#include "jos_filterbank.h"
+//#include "jos_biquad.h"
+//#include "jos_filterbank.h"
 /** @}*/

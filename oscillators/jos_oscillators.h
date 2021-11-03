@@ -6,6 +6,6 @@
 /* \defgroup oscillators Oscillators
  *  @{
  */
-#include "jos_sine.h"
-#include "jos_triplesaw.h"
+//#include "jos_sine.h"
+//#include "jos_triplesaw.h"
 /** @}*/
