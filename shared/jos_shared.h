@@ -3,4 +3,10 @@
 
 #pragma once
 
+/** \defgroup shared Shared
+ *  @{
+ */
+
 #include "jos_faust_module.h"
+
+/** @}*/

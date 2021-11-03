@@ -21,7 +21,8 @@ import("stdfaust.lib");
 // While this version is licensed LGPL (with exception) along with other GRAME
 // library functions, the file freeverb.dsp in the examples directory of older
 // Faust distributions, such as faust-0.9.85, was released under the BSD license,
-// which is less restrictive.
+// which is less restrictive. Apparently the same BSD version of freeverb is in the
+// latest Faust distribution as benchmarks/freeverb.dsp
 freeverb_demo = _,_ <: (*(g)*fixedgain,*(g)*fixedgain :
 	re.stereo_freeverb(combfeed, allpassfeed, damping, spatSpread)),
 	*(1-g), *(1-g) :> _,_

@@ -3,5 +3,9 @@
 
 #pragma once
 
-//#include "jos_biquad.h"
-//#include "jos_filterbank.h"
+/** \defgroup filters Filters
+ *  @{
+ */
+#include "jos_biquad.h"
+#include "jos_filterbank.h"
+/** @}*/

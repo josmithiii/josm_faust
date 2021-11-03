@@ -3,5 +3,9 @@
 
 #pragma once
 
-//#include "jos_sine.h"
-//#include "jos_triplesaw.h"
+/** \defgroup oscillators Oscillators
+ *  @{
+ */
+#include "jos_sine.h"
+#include "jos_triplesaw.h"
+/** @}*/
