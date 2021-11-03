@@ -47,9 +47,6 @@
 
 //==============================================================================
 
-/** \defgroup jos_faust JOS Faust Modules
- *  @{
- */
 #include "shared/jos_shared.h"
 #include "oscillators/jos_oscillators.h"
 #include "filters/jos_filters.h"
