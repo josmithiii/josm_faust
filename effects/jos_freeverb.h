@@ -5,43 +5,48 @@
  * MIT License with LGPL component
  */
 
-//#ifndef __FREEVERB_H__
-//#define __FREEVERB_H__
-
-//#include "../shared/jos_faust_module.h"
-
 namespace jos
 {
 
 //==============================================================================
 /**
-    Freeverb is a well known free open-source reverb.
-    Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
+   Freeverb is a well known free open-source reverb.
+   Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
 
-    @see jos::Zitarev
+   @see Zitarev
 
-    @tags{Effects}
+   @tags{Effects}
 
 */
 
+  /** Forward declarations of classes provided by the Faust distribution. */
   class freeverb;
   class APIUI;
 
+  /** Artificial reverberator. */
   class JUCE_API Freeverb : public jos::FaustModule
   {
+    /** Number of input signals. */
     int mNumInputs;
+
+    /** Number of output signals. */
     int mNumOutputs;
 
+    /** Amount of reverb desired from 0 (none) to 1 (maximally wet). */
     float mReverbLevel;
 
+    /** Faust signal processing module (derived class of dsp) implementing Freeverb. */
     freeverb* freeverbP;
+
+    /** Faust user interface (derived class of UI) controlling Freeverb. */
     APIUI* freeverbUIP;
 
+    /** process nframes samples of audio from inputs to outputs. */
     void compute(int nframes, float** inputs, float** outputs);
 
   public:
-    //==============================================================================
-    /** 
+    /** Constructor.
+
         Creates an instance of Freeverb with the specified number of input and output channels. 
 
         @param numInChans number of input channels
@@ -50,38 +55,29 @@ namespace jos
         @see Zitarev
 
         @tags{effects}
-     */
+    */
     Freeverb(int numInChans, int numOutChans); // xtor
 
     /** Destructor. */
     virtual ~Freeverb();
 
-    ///@{
+    /** Ask the Faust signal-processing module how many inputs it has. */
     int getNumInputs() override { return(mNumInputs); }
-    int getNumOutputs() override { return(mNumOutputs); }
-    ///@}
 
+    /** Ask the Faust signal-processing module how many outputs it has. */
+    int getNumOutputs() override { return(mNumOutputs); }
+
+    /** Tell the Faust signal-processing module what the sampling rate is. */
     void prepareToPlay(double samplingRateHz, int maxSamplesPerBlock) override;
 
-    //==============================================================================
-    /** Set the reverberation level between 0 (no reverb) to 1 (maximally "wet" reverb) */
+    /** Set the reverberation level between 0 (no reverb) to 1 (maximally "wet" reverb). */
     void setReverbLevel(float level) {
       mReverbLevel = level;
     }
 
+    /** Process the audio buffer along with any MIDI controls. */
     virtual void processBlock (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) override;
 
   }; // Class Freeverb
 
 } // namespace jos
-
-/**
-   \file jos_freeverb.h
-
-   C++ wrapper for re.freeverb in the faustlibraries distribution (reverbs.lib).
-
-*/
-
-//==============================================================================
-
-//#endif // __FREEVERB_H__

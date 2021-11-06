@@ -1,4 +1,18 @@
-// JOS Faust modules - started 2021-10-28
+/*
+  ==============================================================================
+
+   This file is part of the JOS modules (JOSM), started 2021-10-28.
+   Copyright (c) 2021 - Julius O. Smith III and others
+
+   JOSM is an open source library subject to the various licenses
+   chosen by contributing authors.
+
+   JOSM IS PROVIDED "AS IS" WITHOUT ANY WARRANTY, AND ALL WARRANTIES,
+   WHETHER EXPRESSED OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS
+   FOR PURPOSE, ARE DISCLAIMED.
+
+  ==============================================================================
+*/
 
 /* ******************************************************************************
  The block below describes the properties of this module, and is read by
@@ -47,15 +61,14 @@
 
 //==============================================================================
 
+//needed? #include <complex>
+
 #include "shared/jos_shared.h"
 #include "oscillators/jos_oscillators.h"
 #include "filters/jos_filters.h"
 //#include "effects/jos_effects.h"
 #include "effects/jos_freeverb.h"
 #include "effects/jos_zitarev.h"
-/** @} */
-
-#include <complex>
 
 namespace jos
 {
