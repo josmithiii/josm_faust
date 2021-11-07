@@ -9,22 +9,17 @@ namespace jos
 {
 
 //==============================================================================
-/**
-   Freeverb is a well known free open-source reverb.
-   Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
-
-   @see Zitarev
-
-   @tags{Effects}
-
-*/
 
   /** Forward declarations of classes provided by the Faust distribution. */
   class freeverb;
   class APIUI;
 
-  /** Artificial reverberator. */
-  class JUCE_API Freeverb : public jos::FaustModule
+  /** Freeverb is a Schroeder reverb by Jezar at Dreampoint used extensively in free software.
+      Reference: https://ccrma.stanford.edu/~jos/pasp/Freeverb.html
+      @see Zitarev
+      @tags{Effects}
+    */
+  class JUCE_API Freeverb : public FaustModule
   {
     /** Number of input signals. */
     int mNumInputs;
@@ -47,7 +42,7 @@ namespace jos
   public:
     /** Constructor.
 
-        Creates an instance of Freeverb with the specified number of input and output channels. 
+        Creates an instance of Freeverb with the specified number of input and output channels.
 
         @param numInChans number of input channels
         @param numOutChans number of output channels
