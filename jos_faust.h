@@ -75,7 +75,7 @@ namespace jos
   static const float PI = atanf(1.0f) * 4.0f;
   static const float PI2 = atanf(1.0f) * 8.0f;
   //#undef Complex // done by juce_audio_basics.h
-  template <typename Type>
-  using Complex = std::complex<Type>;
+  //template <typename Type>
+  //using Complex = std::complex<Type>;
 }
 

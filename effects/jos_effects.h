@@ -13,7 +13,7 @@
    @tags{Effects}
 */
 
-//#pragma once
+#pragma once
 
 /* [NOTE DISABLED DOXYGEN COMMENT] \defgroup effects Effects
  *  @{

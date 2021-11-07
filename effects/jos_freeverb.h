@@ -5,6 +5,8 @@
  * MIT License with LGPL component
  */
 
+#pragma once
+
 namespace jos
 {
 
