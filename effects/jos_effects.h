@@ -13,7 +13,7 @@
    @tags{Effects}
 */
 
-//#pragma once
+#pragma once
 
 /* [NOTE DISABLED DOXYGEN COMMENT] \defgroup effects Effects
  *  @{
@@ -27,9 +27,9 @@ namespace jos {
   /**
      Class for testing only
   */
-  class TestClass {
+  class TestClassEffects {
   public:
-    TestClass() {
+    TestClassEffects() {
       std::cout << "We have at least one class\n";
     }
   };

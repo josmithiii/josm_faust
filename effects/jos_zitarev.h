@@ -15,16 +15,15 @@ namespace jos {
 
 //==============================================================================
 /**
-    Zitarev is a rich artificial reverberator developed by Fons Adriaensen for pipe organ
-
+    Zitarev is a rich Schroeder/FDN reverb developed by Fons Adriaensen.
     Reference: https://ccrma.stanford.edu/~jos/pasp/Zita_Rev1.html
 
-    @see jos::Freeverb
+    @see Freeverb
 
     @tags{Effects}
  */
 
-  class JUCE_API Zitarev : public jos::FaustModule
+  class JUCE_API Zitarev : public FaustModule
   {
     int mNumInputs;
     int mNumOutputs;
@@ -96,12 +95,5 @@ namespace jos {
   }; // Class Zitarev
 
 } // namespace jos
-
-/**
-   \file jos_zitarev.h
-
-   C++ wrapper for re.zita_rev1 in the faustlibraries distribution (reverbs.lib).
-
-*/
 
 #endif // __ZITAREV_H__
