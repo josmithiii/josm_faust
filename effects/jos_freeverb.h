@@ -22,8 +22,9 @@ namespace jos
       @tags{Effects}
 
       Source:
-        https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.h
-        https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.cpp
+       - [jos_freeverb.h](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.h)
+       - [jos_freeverb.cpp](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.cpp)
+
     */
   class JUCE_API Freeverb : public FaustModule
   {
