@@ -29,7 +29,7 @@
   description:        C++ module for use with the JUCE Framework, based on jos functions and others from the Faust Libraries
   website:            https://ccrma.stanford.edu/~jos/jos_modules/
   source:             https://github.com/josmithiii/JOSModules
-  license:            MIT unless otherwise specified (also have LGPL and BSD Faust functions)
+  license:            BSD unless otherwise specified (e.g., faust-src/freeverb.dsp is LGPL)
   minimumCppStandard: 14
   dependencies:       juce_audio_utils
   OSXFrameworks:      Accelerate
