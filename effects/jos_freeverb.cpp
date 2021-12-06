@@ -2,7 +2,7 @@
  * jos_freeverb.cpp
  * Julius Smith
  * October 2021
- * MIT License with LGPL component that is easily rewritten if need be
+ * BSD License with LGPL component that is easily rewritten if need be
  */
 
 #include "jos_freeverb.h"
@@ -28,16 +28,9 @@ namespace jos {
               << mNumOutputs << " output channels with reverb level = "
               << mReverbLevel << "\n";
 #endif
-
-    freeverbP = new freeverb; // stereo input and output
-    freeverbUIP = new APIUI; // #included in *dsp.h
-    freeverbP->buildUserInterface(freeverbUIP);
   }
 
-  Freeverb::~Freeverb() {
-    delete freeverbP;
-    delete freeverbUIP;
-  }
+  Freeverb::~Freeverb() { }
 
   void Freeverb::prepareToPlay(double samplingRateHz, int maxSamplesPerBlock) {
     DBG("Freeverb: prepareToPlay(" << samplingRateHz << ")");
@@ -45,10 +38,16 @@ namespace jos {
     FaustModule::prepareToPlay(samplingRateHz, maxSamplesPerBlock); // common initialization, e.g., sampleRate = samplingRateHz;
     FAUSTFLOAT fs = FAUSTFLOAT(samplingRateHz); // Faust typically uses floats, but may be double or quad
 
+    freeverbP.reset(new freeverb); // stereo input and output
+    freeverbUIP.reset(new APIUI); // #included in *dsp.h
+    freeverbP->buildUserInterface(freeverbUIP.get());
     freeverbP->init(fs); // compression filter parameters depend on sampling rate
     jassert(freeverbP->getNumOutputs() == mNumOutputs);
     int ndx = freeverbUIP->getParamIndex("Wet");
     freeverbUIP->setParamValue(ndx, mReverbLevel);
+  }
+
+  void Freeverb::releaseResources() {
   }
 
   void Freeverb::processBlock (juce::AudioBuffer<float>& audioBuffer, juce::MidiBuffer& midi)
