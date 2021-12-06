@@ -30,8 +30,8 @@ namespace jos {
 
     float mReverbLevel;
 
-    zitarev* zitarevP;
-    APIUI* zitarevUIP;
+    std::unique_ptr<zitarev> zitarevP;
+    std::unique_ptr<APIUI> zitarevUIP;
 
     void compute(int nframes, float** inputs, float** outputs);
 
@@ -50,22 +50,15 @@ namespace jos {
         mNumInputs = 2;
       }
 #if 1
-      std::cout << "Zitarev: constructed for "
+      std::cout << "Zitarev: constructing for "
                 << mNumInputs << " input channels and "
                 << mNumOutputs << " output channels with reverb level = "
                 << mReverbLevel << "\n";
 #endif
-
-      zitarevP = new zitarev; // stereo input and output
-      zitarevUIP = new APIUI; // #included in *dsp.h
-      zitarevP->buildUserInterface(zitarevUIP);
     }
 
     /** Destructor. */
-    virtual ~Zitarev() {
-      delete zitarevP;
-      delete zitarevUIP;
-    }
+    virtual ~Zitarev() { }
 
     int getNumInputs() override { return(mNumInputs); }
     int getNumOutputs() override { return(mNumOutputs); }
@@ -76,6 +69,9 @@ namespace jos {
       FaustModule::prepareToPlay(samplingRateHz, maxSamplesPerBlock); // common initialization, e.g., sampleRate = samplingRateHz;
       FAUSTFLOAT fs = FAUSTFLOAT(samplingRateHz); // Faust typically uses floats, but may be double or quad
 
+      zitarevP.reset(new zitarev); // stereo input and output
+      zitarevUIP.reset(new APIUI); // #included in *dsp.h
+      zitarevP->buildUserInterface(zitarevUIP.get());
       zitarevP->init(fs); // compression filter parameters depend on sampling rate
       jassert(zitarevP->getNumOutputs() == mNumOutputs);
       int ndx = zitarevUIP->getParamIndex("Wet");
