@@ -18,7 +18,7 @@ namespace jos
 
   /** Zitarev is a Schroeder reverb by Jezar at Dreampoint used extensively in free software.
       Reference: https://ccrma.stanford.edu/~jos/pasp/Zitarev.html
-      @see Zitarev
+      @see Freeverb
       @tags{Effects}
 
       Source:
@@ -54,7 +54,7 @@ namespace jos
         @param numInChans number of input channels
         @param numOutChans number of output channels
 
-        @see Zitarev
+        @see Freeverb
 
         @tags{effects}
     */
