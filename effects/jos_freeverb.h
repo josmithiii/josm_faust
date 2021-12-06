@@ -2,7 +2,7 @@
  * jos_freeverb.h - freeverb from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
- * MIT License with LGPL component
+ * BSD License with LGPL component
  */
 
 #pragma once
@@ -82,6 +82,8 @@ namespace jos
 
     /** Process the audio buffer along with any MIDI controls. */
     virtual void processBlock (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) override;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Freeverb)
 
   }; // Class Freeverb
 
