@@ -3,7 +3,7 @@ author: "Romain Michon"
 license: "LGPL"
 name: "freeverb"
 version: "0.0"
-Code generated with Faust 2.36.2 (https://faust.grame.fr)
+Code generated with Faust 2.38.8 (https://faust.grame.fr)
 Compilation options: -a faust2header.cpp -lang cpp -inpl -es 1 -single -ftz 0
 ------------------------------------------------------------ */
 
@@ -233,12 +233,12 @@ class ScopedNoDenormals
     
         intptr_t fpsr;
         
-        void setFpStatusRegister(intptr_t fpsr) noexcept
+        void setFpStatusRegister(intptr_t fpsr_aux) noexcept
         {
         #if defined (__arm64__) || defined (__aarch64__)
-           asm volatile("msr fpcr, %0" : : "ri" (fpsr));
+           asm volatile("msr fpcr, %0" : : "ri" (fpsr_aux));
         #elif defined (__SSE__)
-            _mm_setcsr(static_cast<uint32_t>(fpsr));
+            _mm_setcsr(static_cast<uint32_t>(fpsr_aux));
         #endif
         }
         
@@ -1089,8 +1089,8 @@ typedef unsigned int uint;
 class APIUI : public PathBuilder, public Meta, public UI
 {
     public:
-
         enum ItemType { kButton = 0, kCheckButton, kVSlider, kHSlider, kNumEntry, kHBargraph, kVBargraph };
+        enum Type { kAcc = 0, kGyr = 1, kNoType };
 
     protected:
 
@@ -1288,8 +1288,6 @@ class APIUI : public PathBuilder, public Meta, public UI
 
     public:
 
-        enum Type { kAcc = 0, kGyr = 1, kNoType };
-
         APIUI() : fHasScreenControl(false), fRedReader(nullptr), fGreenReader(nullptr), fBlueReader(nullptr), fCurrentScale(kLin)
         {}
 
@@ -1411,7 +1409,7 @@ class APIUI : public PathBuilder, public Meta, public UI
         {
             std::map<const char*, const char*> res;
             std::map<std::string, std::string> metadata = fMetaData[uint(p)];
-            for (auto it : metadata) {
+            for (const auto& it : metadata) {
                 res[it.first.c_str()] = it.second.c_str();
             }
             return res;
@@ -1440,11 +1438,11 @@ class APIUI : public PathBuilder, public Meta, public UI
         {
             int index = getParamIndex(path);
             if (index >= 0) setParamValue(index, v);
-#ifdef DEBUG
+        #ifdef DEBUG
             if (index < 0) {
-              fprintf(stderr, ">>## Unknown parameter at path=%s\n",(path == nullptr ? "NULL" : path));
+                fprintf(stderr, ">>## Unknown parameter at path = %s\n", (path == nullptr ? "NULL" : path));
             }
-#endif
+        #endif
         }
 
         double getParamRatio(int p) { return fItems[uint(p)].fConversion->faust2ui(*fItems[uint(p)].fZone); }
@@ -1454,7 +1452,7 @@ class APIUI : public PathBuilder, public Meta, public UI
         double ratio2value(int p, double r)    { return fItems[uint(p)].fConversion->ui2faust(r); }
 
         /**
-         * Return the control type (kAcc, kGyr, or -1) for a given parameter
+         * Return the control type (kAcc, kGyr, or -1) for a given parameter.
          *
          * @param p - the UI parameter index
          *
@@ -1477,7 +1475,7 @@ class APIUI : public PathBuilder, public Meta, public UI
         }
 
         /**
-         * Return the Item type (kButton = 0, kCheckButton, kVSlider, kHSlider, kNumEntry, kHBargraph, kVBargraph) for a given parameter
+         * Return the Item type (kButton = 0, kCheckButton, kVSlider, kHSlider, kNumEntry, kHBargraph, kVBargraph) for a given parameter.
          *
          * @param p - the UI parameter index
          *
@@ -1581,7 +1579,7 @@ class APIUI : public PathBuilder, public Meta, public UI
         }
 
         /**
-         * Get the number of FAUSTFLOAT* zones controlled with the accelerometer
+         * Get the number of FAUSTFLOAT* zones controlled with the accelerometer.
          *
          * @param acc - 0 for X accelerometer, 1 for Y accelerometer, 2 for Z accelerometer
          * @return the number of zones
@@ -1593,7 +1591,7 @@ class APIUI : public PathBuilder, public Meta, public UI
         }
 
         /**
-         * Get the number of FAUSTFLOAT* zones controlled with the gyroscope
+         * Get the number of FAUSTFLOAT* zones controlled with the gyroscope.
          *
          * @param gyr - 0 for X gyroscope, 1 for Y gyroscope, 2 for Z gyroscope
          * @param the number of zones
@@ -1645,6 +1643,12 @@ class APIUI : public PathBuilder, public Meta, public UI
 #ifdef __APPLE__ 
 #define exp10f __exp10f
 #define exp10 __exp10
+#endif
+
+#if defined(_WIN32)
+#define RESTRICT __restrict
+#else
+#define RESTRICT __restrict__
 #endif
 
 class freeverb : public dsp {
@@ -1761,10 +1765,10 @@ class freeverb : public dsp {
 		m->declare("maths.lib/copyright", "GRAME");
 		m->declare("maths.lib/license", "LGPL with exception");
 		m->declare("maths.lib/name", "Faust Math Library");
-		m->declare("maths.lib/version", "2.4");
+		m->declare("maths.lib/version", "2.5");
 		m->declare("name", "freeverb");
 		m->declare("platform.lib/name", "Generic Platform Library");
-		m->declare("platform.lib/version", "0.1");
+		m->declare("platform.lib/version", "0.2");
 		m->declare("reverbs.lib/name", "Faust Reverb Library");
 		m->declare("reverbs.lib/version", "0.2");
 		m->declare("version", "0.0");

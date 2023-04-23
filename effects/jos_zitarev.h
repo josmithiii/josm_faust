@@ -2,92 +2,85 @@
  * jos_zitarev.h - zitarev from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
- * MIT License with LGPL component
+ * BSD License with LGPL component
  */
 
-#ifndef __ZITAREV_H__
-#define __ZITAREV_H__
+#pragma once
 
-namespace jos {
-
-#include "../shared/jos_faust_module.h"
-#include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
+namespace jos
+{
 
 //==============================================================================
-/**
-    Zitarev is a rich Schroeder/FDN reverb developed by Fons Adriaensen.
-    Reference: https://ccrma.stanford.edu/~jos/pasp/Zita_Rev1.html
 
-    @see Freeverb
+  /** Forward declarations of classes provided by the Faust distribution. */
+  class zitarev;
+  class APIUI;
 
-    @tags{Effects}
- */
+  /** Zitarev is a Schroeder reverb by Jezar at Dreampoint used extensively in free software.
+      Reference: https://ccrma.stanford.edu/~jos/pasp/Zitarev.html
+      @see Freeverb
+      @tags{Effects}
 
+      Source:
+       - [jos_zitarev.h](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_zitarev.h)
+       - [jos_zitarev.cpp](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_zitarev.cpp)
+       - [zitarev.dsp](https://github.com/josmithiii/jos_faust/blob/main/faust-src/zitarev.dsp)
+    */
   class JUCE_API Zitarev : public FaustModule
   {
+    /** Number of input signals. */
     int mNumInputs;
+
+    /** Number of output signals. */
     int mNumOutputs;
 
+    /** Amount of reverb desired from 0 (none) to 1 (maximally wet). */
     float mReverbLevel;
 
-    zitarev* zitarevP;
-    APIUI* zitarevUIP;
+    /** Faust signal processing module (derived class of dsp) implementing Zitarev. */
+    std::unique_ptr<zitarev> zitarevP;
 
+    /** Faust user interface (derived class of UI) controlling Zitarev. */
+    std::unique_ptr<APIUI> zitarevUIP;
+
+    /** process nframes samples of audio from inputs to outputs. */
     void compute(int nframes, float** inputs, float** outputs);
 
   public:
-    //==============================================================================
-    /** Constructor: Creates an instance of Zitarev with the specified number of input and output channels. */
-    Zitarev(int numInChans, int numOutChans) // xtor
-      : mNumInputs(numInChans), mNumOutputs(numOutChans)
-    {
-      if ( mNumInputs < 1 ) {
-        std::cerr << "*** Zitarev.h: must have at least one input audio channels\n";
-        mNumInputs = 1;
-      }
-      if ( mNumInputs > 2 ) {
-        std::cerr << "*** Zitarev.h: limiting number of audio output channels to 2\n";
-        mNumInputs = 2;
-      }
-#if 1
-      std::cout << "Zitarev: constructed for "
-                << mNumInputs << " input channels and "
-                << mNumOutputs << " output channels with reverb level = "
-                << mReverbLevel << "\n";
-#endif
+    /** Constructor.
 
-      zitarevP = new zitarev; // stereo input and output
-      zitarevUIP = new APIUI; // #included in *dsp.h
-      zitarevP->buildUserInterface(zitarevUIP);
-    }
+        Creates an instance of Zitarev with the specified number of input and output channels.
+
+        @param numInChans number of input channels
+        @param numOutChans number of output channels
+
+        @see Freeverb
+
+        @tags{effects}
+    */
+    Zitarev(int numInChans, int numOutChans); // xtor
 
     /** Destructor. */
-    virtual ~Zitarev() {
-      delete zitarevP;
-      delete zitarevUIP;
-    }
+    virtual ~Zitarev();
 
+    /** Ask the Faust signal-processing module how many inputs it has. */
     int getNumInputs() override { return(mNumInputs); }
+
+    /** Ask the Faust signal-processing module how many outputs it has. */
     int getNumOutputs() override { return(mNumOutputs); }
 
-    void prepareToPlay(double samplingRateHz, int maxSamplesPerBlock) override {
-      DBG("Zitarev: prepareToPlay(" << samplingRateHz << ")");
-      jassert(samplingRateHz>0);
-      FaustModule::prepareToPlay(samplingRateHz, maxSamplesPerBlock); // common initialization, e.g., sampleRate = samplingRateHz;
-      FAUSTFLOAT fs = FAUSTFLOAT(samplingRateHz); // Faust typically uses floats, but may be double or quad
+    /** Tell the Faust signal-processing module what the sampling rate is. */
+    void prepareToPlay(double samplingRateHz, int maxSamplesPerBlock) override;
 
-      zitarevP->init(fs); // compression filter parameters depend on sampling rate
-      jassert(zitarevP->getNumOutputs() == mNumOutputs);
-      int ndx = zitarevUIP->getParamIndex("Wet");
-      zitarevUIP->setParamValue(ndx, mReverbLevel);
-    }
+    /** Release any resources allocated in prepareToPlay(). */
+    void releaseResources() override;
 
-    //==============================================================================
-    /** Set the reverberation level between 0 (no reverb) to 1 (maximally "wet" reverb) */
+    /** Set the reverberation level between 0 (no reverb) to 1 (maximally "wet" reverb). */
     void setReverbLevel(float level) {
       mReverbLevel = level;
     }
 
+    /** Process the audio buffer along with any MIDI controls. */
     virtual void processBlock (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) override;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Zitarev)
@@ -95,5 +88,3 @@ namespace jos {
   }; // Class Zitarev
 
 } // namespace jos
-
-#endif // __ZITAREV_H__
