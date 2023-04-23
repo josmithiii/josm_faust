@@ -79,4 +79,3 @@ namespace jos
   //template <typename Type>
   //using Complex = std::complex<Type>;
 }
-
