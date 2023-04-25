@@ -1,13 +1,13 @@
 /*
- * jos_zitarev.cpp
+ * josm_zitarev.cpp
  * Julius Smith
  * October 2021
  * BSD License with LGPL component that is easily rewritten if need be
  */
 
-#include "jos_zitarev.h"
+#include "josm_zitarev.h"
 
-namespace jos {
+namespace josm {
 
 #include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 
@@ -54,11 +54,11 @@ namespace jos {
   {
     if (not inited) { return; }
     int numSamples = audioBuffer.getNumSamples();
-    jassert(getNumInputs() <= audioBuffer.getNumChannels());
-    jassert(getNumOutputs() <= audioBuffer.getNumChannels());
-    float** writePointers = audioBuffer.getArrayOfWritePointers();
-    float** readPointers { writePointers }; // we process in place - COMPILE FAUST WITH -inpl OPTION!
-    compute(numSamples, readPointers, writePointers);
+    int numChans = audioBuffer.getNumChannels();
+    jassert(getNumInputs() <= numChans);
+    jassert(getNumOutputs() <= numChans);
+    auto bufPointersFaust = josm::getBufferPointersFaust<float>(audioBuffer);
+    compute(numSamples, bufPointersFaust.get(), bufPointersFaust.get());
   }
 
   void Zitarev::compute(int nframes, float** inputs, float** outputs)
@@ -68,4 +68,4 @@ namespace jos {
       zitarevP->compute(nframes, inputs, outputs);
     } // else in-place processing means we're done
   }
-} // namespace jos
+} // namespace josm

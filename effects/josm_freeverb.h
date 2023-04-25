@@ -1,5 +1,5 @@
 /*
- * jos_freeverb.h - freeverb from the faustlibraries distribution (in reverbs.lib)
+ * josm_freeverb.h - freeverb from the faustlibraries distribution (in reverbs.lib)
  * Julius Smith
  * October 2021
  * BSD License with LGPL component
@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace jos
+namespace josm
 {
 
 //==============================================================================
@@ -22,9 +22,9 @@ namespace jos
       @tags{Effects}
 
       Source:
-       - [jos_freeverb.h](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.h)
-       - [jos_freeverb.cpp](https://github.com/josmithiii/jos_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/jos_freeverb.cpp)
-       - [freeverb.dsp](https://github.com/josmithiii/jos_faust/blob/main/faust-src/freeverb.dsp)
+       - [josm_freeverb.h](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_freeverb.h)
+       - [josm_freeverb.cpp](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_freeverb.cpp)
+       - [freeverb.dsp](https://github.com/josmithiii/josm_faust/blob/main/faust-src/freeverb.dsp)
     */
   class JUCE_API Freeverb : public FaustModule
   {
@@ -87,4 +87,4 @@ namespace jos
 
   }; // Class Freeverb
 
-} // namespace jos
+} // namespace josm

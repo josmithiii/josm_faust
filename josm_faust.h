@@ -22,7 +22,7 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
-  ID:                 jos_faust
+  ID:                 josm_faust
   vendor:             jos
   version:            0.0.1
   name:               JOS Faust Modules for JUCE
@@ -39,39 +39,39 @@
 
 *******************************************************************************/
 
-/*! \file jos_faust.h
-    Includes everything in the jos_faust module
-    @tags{jos_faust}
+/*! \file josm_faust.h
+    Includes everything in the josm_faust module
+    @tags{josm_faust}
 */
 
 #pragma once
-#define JOS_FAUST_H_INCLUDED
+#define JOSM_FAUST_H_INCLUDED
 
 #include <juce_audio_utils/juce_audio_utils.h> // dependencies
 
 //==============================================================================
 
-/** Config: JOS_FAUST_PARAM_LOG
+/** Config: JOSM_FAUST_PARAM_LOG
 
     When this flag is enabled, every setting of a Faust DSP parameter will
     be logged in the console.
 */
-#ifndef JOS_FAUST_PARAM_LOG
-#define JOS_FAUST_PARAM_LOG 1
+#ifndef JOSM_FAUST_PARAM_LOG
+#define JOSM_FAUST_PARAM_LOG 1
 #endif
 
 //==============================================================================
 
 //needed? #include <complex>
 
-#include "shared/jos_shared.h"
-#include "oscillators/jos_oscillators.h"
-#include "filters/jos_filters.h"
-#include "effects/jos_effects.h"
-//#include "effects/jos_freeverb.h"
-//#include "effects/jos_zitarev.h"
+#include "shared/josm_shared.h"
+#include "oscillators/josm_oscillators.h"
+//#include "filters/josm_filters.h"
+#include "effects/josm_effects.h"
+//#include "effects/josm_freeverb.h"
+//#include "effects/josm_zitarev.h"
 
-namespace jos
+namespace josm
 {
   static const float PI = atanf(1.0f) * 4.0f;
   static const float PI2 = atanf(1.0f) * 8.0f;

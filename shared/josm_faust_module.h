@@ -10,7 +10,7 @@
 
 #include <JuceHeader.h>
 
-namespace jos {
+namespace josm {
 
   /** Abstract class for Faust modules, taking care of common functions such as standard Faust API */
 
@@ -70,6 +70,6 @@ namespace jos {
      */
     virtual void releaseResources() { inited = false; }
 
-  };
+  }; // class FaustModule
 
-};
+}; // namespace josm

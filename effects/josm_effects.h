@@ -2,7 +2,7 @@
 // Started 2021-10-28
 
 /**
-   \file jos_effects.h
+   \file josm_effects.h
 
    Includes classes created from Faust modules in effects.lib in the faustlibraries distribution.
    Effects are essentially well known filters.
@@ -18,11 +18,11 @@
 /* [NOTE DISABLED DOXYGEN COMMENT] \defgroup effects Effects
  *  @{
  */
-#include "jos_freeverb.h"
-#include "jos_zitarev.h"
+#include "josm_freeverb.h"
+#include "josm_zitarev.h"
 /* @} */
 
-namespace jos {
+namespace josm {
 
   /**
      Class for testing only
