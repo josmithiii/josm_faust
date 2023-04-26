@@ -14,6 +14,10 @@ Since Faust compiles to C++, there is no real need for this module.  However, it
     * More "curation" of selected functions, while the Faust Libraries Distribution is more open, as it should be.<br/>
       (The algorithm is simply to add functions as they get used in real projects.)
 
+#License
+
+See the individual files.  Most are MIT or BSD License.  FreeVerb by Romain Michon (Faust) is LGPL.
+
 #Status
 
-Just getting started. Two reverberators so far (used in JackTrip), plus the Doxygen mechanics.
+Just getting started. Two reverberators so far (used in JackTrip), plus the Doxygen mechanics.  Filter utilities in progress.

@@ -13,7 +13,7 @@ namespace josm
 //==============================================================================
 
   /** Forward declarations of classes provided by the Faust distribution. */
-  class freeverb;
+  class faust_freeverb;
   class APIUI;
 
   /** Freeverb is a Schroeder reverb by Jezar at Dreampoint used extensively in free software.
@@ -24,7 +24,7 @@ namespace josm
       Source:
        - [josm_freeverb.h](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_freeverb.h)
        - [josm_freeverb.cpp](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_freeverb.cpp)
-       - [freeverb.dsp](https://github.com/josmithiii/josm_faust/blob/main/faust-src/freeverb.dsp)
+       - [faust_freeverb.dsp](https://github.com/josmithiii/josm_faust/blob/main/faust-src/faust_freeverb.dsp)
     */
   class JUCE_API Freeverb : public FaustModule
   {
@@ -38,7 +38,7 @@ namespace josm
     float mReverbLevel;
 
     /** Faust signal processing module (derived class of dsp) implementing Freeverb. */
-    std::unique_ptr<freeverb> freeverbP;
+    std::unique_ptr<faust_freeverb> freeverbP;
 
     /** Faust user interface (derived class of UI) controlling Freeverb. */
     std::unique_ptr<APIUI> freeverbUIP;
@@ -61,7 +61,7 @@ namespace josm
     Freeverb(int numInChans, int numOutChans); // xtor
 
     /** Destructor. */
-    virtual ~Freeverb();
+    virtual ~Freeverb() override;
 
     /** Ask the Faust signal-processing module how many inputs it has. */
     int getNumInputs() override { return(mNumInputs); }

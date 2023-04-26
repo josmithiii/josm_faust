@@ -13,7 +13,7 @@ namespace josm
 //==============================================================================
 
   /** Forward declarations of classes provided by the Faust distribution. */
-  class zitarev;
+  class faust_zitarev;
   class APIUI;
 
   /** Zitarev is a Schroeder reverb by Jezar at Dreampoint used extensively in free software.
@@ -24,7 +24,7 @@ namespace josm
       Source:
        - [josm_zitarev.h](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_zitarev.h)
        - [josm_zitarev.cpp](https://github.com/josmithiii/josm_faust/blob/ebad3340273c1739d9ce383d54ccaee3aee476a0/effects/josm_zitarev.cpp)
-       - [zitarev.dsp](https://github.com/josmithiii/josm_faust/blob/main/faust-src/zitarev.dsp)
+       - [faust_zitarev.dsp](https://github.com/josmithiii/josm_faust/blob/main/faust-src/faust_zitarev.dsp)
     */
   class JUCE_API Zitarev : public FaustModule
   {
@@ -38,7 +38,7 @@ namespace josm
     float mReverbLevel;
 
     /** Faust signal processing module (derived class of dsp) implementing Zitarev. */
-    std::unique_ptr<zitarev> zitarevP;
+    std::unique_ptr<faust_zitarev> zitarevP;
 
     /** Faust user interface (derived class of UI) controlling Zitarev. */
     std::unique_ptr<APIUI> zitarevUIP;

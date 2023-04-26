@@ -6,10 +6,9 @@
  */
 
 #include "josm_zitarev.h"
+#include "../faust-src/faustheadersdir/faust_zitarev.h" // stereo in and out
 
 namespace josm {
-
-#include "../faust-src/faustheadersdir/zitarev.h" // stereo in and out
 
   Zitarev::Zitarev(int numInChans, int numOutChans) // xtor
     : mNumInputs(numInChans), mNumOutputs(numOutChans)
@@ -38,7 +37,7 @@ namespace josm {
     FaustModule::prepareToPlay(samplingRateHz, maxSamplesPerBlock); // common initialization, e.g., sampleRate = samplingRateHz;
     FAUSTFLOAT fs = FAUSTFLOAT(samplingRateHz); // Faust typically uses floats, but may be double or quad
 
-    zitarevP.reset(new zitarev); // stereo input and output
+    zitarevP.reset(new faust_zitarev); // stereo input and output
     zitarevUIP.reset(new APIUI); // #included in *dsp.h
     zitarevP->buildUserInterface(zitarevUIP.get());
     zitarevP->init(fs); // compression filter parameters depend on sampling rate
