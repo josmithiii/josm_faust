@@ -2,6 +2,7 @@
 // Started 2021-10-28
 
 #pragma once
+#define JOSM_FILTERS_H_INCLUDED
 
 /* \defgroup filters Filters
  *  @{

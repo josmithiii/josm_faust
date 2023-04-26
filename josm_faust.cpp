@@ -7,7 +7,8 @@
  #error "Incorrect use of JUCE-style module josm_faust"
 #endif
 
-#include "josm_faust.h"
+//This would result in double includes, since each .cpp below does its own includes:
+//#include "josm_faust.h"
 
 #include "shared/josm_shared.cpp"
 #include "oscillators/josm_oscillators.cpp"
