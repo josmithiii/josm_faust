@@ -8,7 +8,7 @@
    Effects are essentially well known filters.
    Current effects include Freeverb and Zitarev.
 
-   @see jos::Freeverb, jos::Zitarev
+   @see josm::Freeverb, josm::Zitarev
 
    @tags{Effects}
 */
