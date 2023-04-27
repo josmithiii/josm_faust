@@ -83,7 +83,7 @@ std::unique_ptr<T*[]> getBufferPointersFaust(juce::AudioBuffer<T>& audioBuffer) 
 
   class GetBufferPointersFaustTest : public juce::UnitTest {
   public:
-    GetBufferPointersFaustTest() : UnitTest("GetBufferPointersFaustTest") {}
+    GetBufferPointersFaustTest() : UnitTest("GetBufferPointersFaustTest", "JOSM-Shared") {}
 
     void runTest() override {
       beginTest("getBufferPointersFaust");
