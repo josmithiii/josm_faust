@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <JuceHeader.h>
+// We are in a module now: #include <JuceHeader.h>
 
 namespace josm {
 
@@ -72,4 +72,4 @@ namespace josm {
 
   }; // class FaustModule
 
-}; // namespace josm
+} // namespace josm

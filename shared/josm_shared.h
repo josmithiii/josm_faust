@@ -12,15 +12,16 @@
 */
 
 #pragma once
+#define JOSM_SHARED_H_INCLUDED
 
 /* \defgroup shared Shared
  *  @{
  */
 
-#include "josm_faust_module.h" // Abstract superclass shared by all Faust modules
-
 #include <memory>
 #include <juce_audio_basics/juce_audio_basics.h>
+
+#include "josm_faust_module.h" // Abstract superclass shared by all Faust modules
 
 namespace josm {
 
@@ -82,7 +83,7 @@ std::unique_ptr<T*[]> getBufferPointersFaust(juce::AudioBuffer<T>& audioBuffer) 
 
   class GetBufferPointersFaustTest : public juce::UnitTest {
   public:
-    GetBufferPointersFaustTest() : UnitTest("GetBufferPointersFaustTest") {}
+    GetBufferPointersFaustTest() : UnitTest("GetBufferPointersFaustTest", "JOSM-Shared") {}
 
     void runTest() override {
       beginTest("getBufferPointersFaust");
@@ -98,12 +99,13 @@ std::unique_ptr<T*[]> getBufferPointersFaust(juce::AudioBuffer<T>& audioBuffer) 
       }
 
       // Call the getBufferPointersFaust function
-      auto bufPtrsFaust = getBufferPointersFaust(buffer);
+      std::unique_ptr<float*[]> bufPtrsFaust = getBufferPointersFaust(buffer);
 
       // Check if the returned pointers match the original buffer's pointers
       for (int channel = 0; channel < buffer.getNumChannels(); ++channel) {
-        expectEquals(bufPtrsFaust[channel], buffer.getWritePointer(channel),
-                     "Write pointer mismatch");
+        expectEquals<intptr_t>(reinterpret_cast<intptr_t>(bufPtrsFaust[unsigned(channel)]),
+                               reinterpret_cast<intptr_t>(buffer.getWritePointer(channel)),
+                               "Write pointer mismatch");
       }
 
       // Check if the values in the buffer match the test data

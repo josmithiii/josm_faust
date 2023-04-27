@@ -6,11 +6,7 @@
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
     header files that the compiler may be using.
  */
- #error "Incorrect use of JUCE cpp file josm_effects.cpp/h"
+ #error "Incorrect use of JUCE-style module cpp file josm_effects.cpp/h"
 #endif
 
 #include "josm_effects.h"
-
-#include "josm_freeverb.cpp"
-#include "josm_zitarev.cpp"
-

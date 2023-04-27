@@ -7,11 +7,9 @@
 
 #include "josm_freeverb.h"
 
-#pragma message("faust_freeverb.h INCLUDED")
-
-#include "../faust-src/faustheadersdir/faust_freeverb.h" // stereo in and out
-
 namespace josm {
+
+#include "../faust-src/faustheadersdir/freeverb.h" // stereo in and out
 
   Freeverb::Freeverb(int numInChans, int numOutChans) // xtor
     : mNumInputs(numInChans), mNumOutputs(numOutChans)
@@ -40,8 +38,8 @@ namespace josm {
     FaustModule::prepareToPlay(samplingRateHz, maxSamplesPerBlock); // common initialization, e.g., sampleRate = samplingRateHz;
     FAUSTFLOAT fs = FAUSTFLOAT(samplingRateHz); // Faust typically uses floats, but may be double or quad
 
-    freeverbP.reset(new faust_freeverb); // stereo input and output
-    freeverbUIP.reset(new APIUI); // #included in *dsp.h
+    freeverbP.reset(new josm::freeverb); // stereo input and output
+    freeverbUIP.reset(new josm::APIUI); // #included in *dsp.h
     freeverbP->buildUserInterface(freeverbUIP.get());
     freeverbP->init(fs); // compression filter parameters depend on sampling rate
     jassert(freeverbP->getNumOutputs() == mNumOutputs);
