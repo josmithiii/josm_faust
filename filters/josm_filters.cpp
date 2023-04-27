@@ -20,17 +20,47 @@ namespace josm {
 
 std::vector<Biquad> designButterworthBiquads(int order, double cutoffFrequency, double samplingRate) {
     // Step 1: Calculate the analog Butterworth filter prototype coefficients (poles and zeros)
+    // Should be LHP poles only starting with 2*N
     std::vector<std::complex<double>> poles;
+
+#if 0 // WRONG on 1st try
     for (int i = 0; i < order; i++) {
         double theta = (2.0 * i + 1.0) * M_PI / (2.0 * order);
         poles.push_back(std::polar(1.0, theta));
+    }
+#endif
+#if 0 // WRONG on 2nd try
+    int N = order;
+    double w_c = 1.0;
+    // Follow-up prompt: Where are the poles of an Nth-order analog Butterworth filter?
+    // Follow-up prompt: Give the formula in C++:
+    for (int k = 1; k <= N; ++k) {
+        double real_part = -w_c * cos((2.0 * k - 1.0) * M_PI / (2.0 * N));
+        double imag_part = -w_c * sin((2.0 * k - 1.0) * M_PI / (2.0 * N));
+
+        std::complex<double> pole(real_part, imag_part);
+        poles.push_back(pole);
+    }
+#endif
+
+    // 1st try fixed by hand:
+    int odd = order % 2;
+    if (odd == 1) {
+      poles.push_back(std::complex(-1.0, 0.0)); // one real pole
+    }
+    for (int i = odd; i < (order-odd)/2; i++) {
+      double theta = (i + 1) * M_PI / (2.0 * double(order));
+      poles.push_back(std::polar(1.0, M_PI+theta));
+      poles.push_back(std::polar(1.0, M_PI-theta));
     }
 
     // Step 2: Perform the bilinear transform on the analog coefficients to obtain the digital coefficients
     double preWarpFrequency = 2.0 * samplingRate * std::tan(M_PI * cutoffFrequency / samplingRate);
     std::vector<std::complex<double>> digitalPoles;
     for (const auto& pole : poles) {
-        digitalPoles.push_back((2.0 * samplingRate + pole * preWarpFrequency) / (2.0 * samplingRate - pole * preWarpFrequency));
+      digitalPoles.push_back((2.0 * samplingRate + pole * preWarpFrequency) / (2.0 * samplingRate - pole * preWarpFrequency));
+      // z = (1 + (s * T) / 2) / [1 - (s * T) / 2]
+      // = (2 + s T) / (2 - s T)
     }
 
     // Step 3: Convert the digital coefficients into second-order sections (biquads)
@@ -96,30 +126,31 @@ int main() {
 // #include <JuceHeader.h>
 // #include "ButterworthBiquads.h" // Make sure to include the header file containing the `designButterworthBiquads` function
 
-class ButterworthBiquadsTest : public UnitTest {
+class ButterworthBiquadsTest : public juce::UnitTest {
 public:
-    ButterworthBiquadsTest() : UnitTest("Butterworth Biquads Test") {}
+    ButterworthBiquadsTest() : UnitTest("Butterworth Biquads Test","JOSM-Filters") {}
 
     void runTest() override {
         beginTest("Design Butterworth Biquads");
 
-        int order = 4;
-        double cutoffFrequency = 1000.0;
-        double samplingRate = 44100.0;
+        for (int order=0; order<10; order++) {
+          double cutoffFrequency = 1000.0;
+          double samplingRate = 44100.0;
 
-        std::vector<Biquad> biquads = designButterworthBiquads(order, cutoffFrequency, samplingRate);
+          std::vector<Biquad> biquads = designButterworthBiquads(order, cutoffFrequency, samplingRate);
 
-        // Test the number of biquads created
-        expect(biquads.size() == (order + 1) / 2, "Incorrect number of biquads");
+          // Test the number of biquads created
+          expect(biquads.size() == (order + 1) / 2, "Incorrect number of biquads");
 
-        // Test if the calculated coefficients are within an acceptable range (you may need to adjust the tolerance)
-        double tolerance = 1e-6;
-        for (const auto& biquad : biquads) {
+          // Test if the calculated coefficients are within an acceptable range (you may need to adjust the tolerance)
+          double tolerance = 1e-6;
+          for (const auto& biquad : biquads) {
             expect(std::abs(biquad.b0) <= 1.0 + tolerance, "b0 coefficient out of range");
             expect(std::abs(biquad.b1) <= 1.0 + tolerance, "b1 coefficient out of range");
             expect(std::abs(biquad.b2) <= 1.0 + tolerance, "b2 coefficient out of range");
             expect(std::abs(biquad.a1) <= 2.0 + tolerance, "a1 coefficient out of range");
             expect(std::abs(biquad.a2) <= 1.0 + tolerance, "a2 coefficient out of range");
+          }
         }
     }
 };
