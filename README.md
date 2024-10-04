@@ -11,8 +11,8 @@ Since Faust compiles to C++, there is no real need for this module.  However, it
     * No Faust installation required.  The C++ here is tracked source ( but see ./faust-src/README.md ).
     * When working with JUCE, a ready-to-use JUCE-format C++ module is convenient to have.
     * Doxygen documentation (like JUCE's) is generated.
-    * More "curation" of selected functions, while the Faust Libraries Distribution is more open, as it should be.<br/>
-      (The algorithm is simply to add functions as they get used in real projects.)
+    * More "curation" of selected functions, while the Faust Libraries Distribution is more open, as it should be.
+      (The algorithm for josm is simply to add functions as they get used in real projects.)
 
 #Status
 
