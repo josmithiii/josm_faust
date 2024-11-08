@@ -7,6 +7,9 @@
 
 #pragma once
 
+//#include <JuceHeader.h>
+#include "../shared/josm_faust_module.h"
+
 namespace josm
 {
 

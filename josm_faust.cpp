@@ -12,7 +12,7 @@
 
 #include "shared/josm_shared.cpp"
 #include "oscillators/josm_oscillators.cpp"
-#include "filters/josm_filters.cpp"
+// TEMP HACK: #include "filters/josm_filters.cpp"
 #include "effects/josm_effects.cpp"
 //#include "effects/josm_freeverb.cpp"
 //#include "effects/josm_zitarev.cpp"

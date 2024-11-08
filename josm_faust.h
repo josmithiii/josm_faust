@@ -66,7 +66,7 @@
 
 #include "shared/josm_shared.h"
 #include "oscillators/josm_oscillators.h"
-#include "filters/josm_filters.h"
+// TEMP HACK: #include "filters/josm_filters.h"
 #include "effects/josm_effects.h"
 //#include "effects/josm_freeverb.h"
 //#include "effects/josm_zitarev.h"

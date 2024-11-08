@@ -21,7 +21,7 @@
 #include <memory>
 #include <juce_audio_basics/juce_audio_basics.h>
 
-#include "josm_faust_module.h" // Abstract superclass shared by all Faust modules
+//? #include "josm_faust_module.h" // Abstract superclass shared by all Faust modules
 
 namespace josm {
 
